@@ -1,0 +1,18 @@
+<nav>
+  <ul class="nav-left">
+    <li><a href="/" aria-label="Home">Home</a></li>
+  </ul>
+
+  <ul class="nav-right">
+    {{#if (isLoggedIn) }}
+    <!-- Logout Button -->
+    <li><a href="/user/logout" aria-label="Logout">Logout</a></li>
+    {{ else }}
+    <!-- Login Button -->
+    <li><a href="/user/login" aria-label="Login">Login</a></li>
+    <li>
+      <a href="/client/new-step-1">New Client</a>
+      li>
+    {{/if}}
+  </ul>
+</nav>
