@@ -1,7 +1,7 @@
 {
   "name": "MVC-starter",
   "version": "0.5.0",
-  "description": "Starter web application using node, express, handlebars, HTMX, nodemailer, passport , libsql-orm and Tailwind",
+  "description": "Starter web application using node, express, template literals, HTMX, nodemailer, passport , libsql-orm and Tailwind",
   "main": "index.js",
   "directories": {
     "lib": "lib"
@@ -13,29 +13,35 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miketerry-org/backend-starter.git"
+    "url": "git+https://github.com/miketerry-org/mvc-starter.git"
   },
   "keywords": [
-    "backend",
-    "web",
+    "controller",
     "express",
-    "handlebars",
-    "nodemailer",
-    "express-handlebars",
-    "handlebrs",
+    "express-multitenant",
+    "express-template-literal",
+    "htmx",
     "libsql",
     "libsql-orm",
+    "literal",
+    "mvc",
+    "model",
+    "node",
+    "nodemailer",
     "sqlite3",
-    "passport",
-    "node"
+    "tailwind",
+    "template",
+    "view",
+    "web"
   ],
   "author": "miketerry.org",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/miketerry-org/backend-starter/issues"
+    "url": "https://github.com/miketerry-org/mvc-starter/issues"
   },
-  "homepage": "https://github.com/miketerry-org/backend-starter#readme",
+  "homepage": "https://github.com/miketerry-org/mvc-starter#readme",
   "dependencies": {
+    "compression": "^1.7.5",
     "confirm-env": "^1.0.0",
     "confirm-json": "^0.6.0",
     "cookie-parser": "^1.4.7",
@@ -43,12 +49,12 @@
     "enigma-env": "^1.0.2",
     "express": "^4.21.2",
     "express-fileupload": "^1.5.1",
-    "express-handlebars": "^8.0.1",
     "express-rate-limit": "^7.5.0",
     "express-session": "^1.18.1",
     "express-xss-sanitizer": "^2.0.0",
     "helmet": "^8.0.0",
     "hpp": "^0.2.3",
+    "html-minifier-terser": "^7.2.0",
     "libsql": "^0.5.0-pre.5",
     "libsql-orm": "^0.5.0",
     "morgan": "^1.10.0",
