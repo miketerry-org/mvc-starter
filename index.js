@@ -10,7 +10,7 @@ const core = require("./lib/core.js");
 // be sure all paths are relative to the root of the project
 core.setupModules([
   "./lib/setups/express",
-  "./lib/setups/template-literal",
+  "./lib/setups/ejs",
   "./lib/setups//nodemailer",
   "./lib/features/home/setup",
   "./lib/features/about/setup",

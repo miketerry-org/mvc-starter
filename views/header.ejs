@@ -1,0 +1,41 @@
+<!-- Header -->
+<header class="header py-6 px-4">
+  <div
+    class="container mx-auto flex flex-col md:flex-row items-center justify-between md:justify-between"
+  >
+    <!-- Left Block: Logo and Navbar -->
+    <div class="left-block flex flex-col items-center md:items-start">
+      <!-- Logo -->
+      <div class="logo mb-4 md:mb-0">
+        <img src="logo.svg" alt="Mike Terry Logo" class="w-16 h-16" />
+        <!-- Replace with actual logo path -->
+      </div>
+
+<%- include('navbar') %>
+
+    <!-- Middle Block: Project Title and Slogan -->
+    <div class="middle-block text-center md:text-center">
+      <h1 class="text-3xl font-bold"><%= tenant.title %></h1>
+      <h2 class="text-xl text-gray-600"><%= tenant.slogan %></h2>
+    </div>
+
+    <!-- Right Block: Login/Logout (conditionally rendered) -->
+    <div class="right-block mt-4 md:mt-0 md:ml-auto flex items-center">
+      <% if (isLoggedIn) { %>
+      <!-- Logout Link -->
+      <a
+        href="#logout"
+        class="login-logout-link bg-blue-500 text-white rounded-full px-6 py-2 text-lg hover:bg-blue-600"
+        >Logout</a
+      >
+      <% } else { %>
+      <!-- Login Link -->
+      <a
+        href="#login"
+        class="login-logout-link bg-blue-500 text-white rounded-full px-6 py-2 text-lg hover:bg-blue-600"
+        >Login</a
+      >
+      <% } %>
+    </div>
+  </div>
+</header>
