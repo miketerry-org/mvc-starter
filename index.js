@@ -4,6 +4,9 @@
 require("enigma-env").run();
 
 // load all necessary packages
+const fs = require("fs");
+const http = require("http");
+const https = require("https");
 const core = require("./lib/core.js");
 
 // pass all modules needed to setup the application
@@ -19,10 +22,26 @@ core.setupModules([
 ]);
 
 try {
-  // start listening for browser requests
-  core.app.listen(process.env.SERVER_PORT, () => {
-    console.info(`Server is listening on port: ${process.env.SERVER_PORT}`);
-  });
+  // Determine which server to start based on NODE_ENV
+  if (process.env.NODE_ENV === "DEV") {
+    // Define paths to SSL certificates (if in development mode)
+    const sslOptions =
+      process.env.NODE_ENV === "DEV"
+        ? {
+            key: fs.readFileSync("localhost-key.pem"),
+            cert: fs.readFileSync("localhost.pem"),
+          }
+        : null;
+
+    https.createServer(sslOptions, core.app).listen(8080, () => {
+      console.log("HTTPS server running on https://localhost:8080");
+    });
+  } else {
+    // Production or other environments (HTTP)
+    http.createServer(core.app).listen(8080, () => {
+      console.log("HTTP server running on http://localhost:8080");
+    });
+  }
 } catch (err) {
   core.fatal(err.message);
 }
