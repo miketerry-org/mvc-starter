@@ -11,31 +11,33 @@
         <!-- Replace with actual logo path -->
       </div>
 
-<%- include('navbar') %>
+{{>navbar}}
+
+    </div>
 
     <!-- Middle Block: Project Title and Slogan -->
     <div class="middle-block text-center md:text-center">
-      <h1 class="text-3xl font-bold"><%= tenant.title %></h1>
-      <h2 class="text-xl text-gray-600"><%= tenant.slogan %></h2>
+      <h1 class="text-3xl font-bold">{{SITE_TITLE}}</h1>
+      <h2 class="text-xl text-gray-600">{{SITE_SLOGAN}}</h2>
     </div>
 
     <!-- Right Block: Login/Logout (conditionally rendered) -->
     <div class="right-block mt-4 md:mt-0 md:ml-auto flex items-center">
-      <% if (isLoggedIn) { %>
+      {{#if IS_LOGGED}}
       <!-- Logout Link -->
       <a
         href="#logout"
         class="login-logout-link bg-blue-500 text-white rounded-full px-6 py-2 text-lg hover:bg-blue-600"
         >Logout</a
       >
-      <% } else { %>
+      {{else}}
       <!-- Login Link -->
       <a
         href="#login"
         class="login-logout-link bg-blue-500 text-white rounded-full px-6 py-2 text-lg hover:bg-blue-600"
         >Login</a
       >
-      <% } %>
+      {{/if}}
     </div>
   </div>
 </header>
