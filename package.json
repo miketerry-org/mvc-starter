@@ -1,0 +1,40 @@
+{
+  "type": "module",
+  "name": "mvc-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=prod node index.js",
+    "dev": "NODE_ENV=dev node --watch index.js",
+    "generate": "topsecret generate --key-file config.key",
+    "encrypt": "topsecret encrypt config.json config.secure --key-file config.key",
+    "decrypt": "topsecret decrypt config.secure config-decrypted.json --key-file config.key",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "compression": "^1.8.0",
+    "connect-mongodb-session": "^5.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "express-xss-sanitizer": "^2.0.0",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "mongoose": "^8.14.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.1",
+    "topsecret": "^0.7.4",
+    "winston": "^3.17.0",
+    "winston-mongodb": "^6.0.0"
+  }
+}
