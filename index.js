@@ -3,23 +3,19 @@
 import config from "./lib/config.js";
 import { serverLog, setServerLog } from "./lib/utils/serverLog.js";
 import createLogger from "./lib/utils/createLogger.js";
-import createTenants from "./lib/utils/createTenants.js";
-
-// Optional: Add more imports later when needed
-// import createDBConnection from "./lib/utils/createDBConnection.js";
-// import createMailer from "./lib/utils/createMailer.js";
-// import Tenant from "./lib/utils/tenant.js";
-// import Tenants from "./lib/utils/tenants.js";
-// import createTenants from "./lib/utils/createTenants.js";
+import createExpress from "./lib/utils/createExpress.js";
 
 try {
   // create and assign the server logger
-  const logger = await createLogger(config);
-  setServerLog(logger);
+  setServerLog(await createLogger(config));
 
-  const tenants = createTenants(config);
+  // initialize the express application
+  const app = await createExpress(config);
 
-  console.info("application initialized");
+  // start listening for requests
+  app.listen(config.port, () => {
+    console.debug(`Server is listening on port ${config.port}`);
+  });
 } catch (err) {
   console.error(`[Fatal] Failed to initialize logger: ${err.message}`);
   process.exit(1); // Ensure app does not continue in broken state
