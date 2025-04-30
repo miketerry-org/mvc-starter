@@ -12,6 +12,8 @@ try {
   // initialize the express application
   const app = await createExpress(config);
 
+  // add all features
+  app.addFeatures(["about", "auth", "contact", "home", "support"]);
   // start listening for requests
   app.listen(config.port, () => {
     console.debug(`Server is listening on port ${config.port}`);
