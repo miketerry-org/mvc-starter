@@ -4,6 +4,7 @@ import config from "./lib/config.js";
 import { serverLog, setServerLog } from "./lib/utils/serverLog.js";
 import createLogger from "./lib/utils/createLogger.js";
 import createExpress from "./lib/utils/createExpress.js";
+import createServer from "./lib/utils/createServer.js";
 
 try {
   // create and assign the server logger
@@ -14,8 +15,12 @@ try {
 
   // add all features
   app.addFeatures(["about", "auth", "contact", "home", "support"]);
+
+  // create the http or https server
+  const server = await createServer(app);
+
   // start listening for requests
-  app.listen(config.port, () => {
+  server.listen(config.port, () => {
     console.debug(`Server is listening on port ${config.port}`);
   });
 } catch (err) {

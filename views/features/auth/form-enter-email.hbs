@@ -1,7 +1,17 @@
 <div class="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800">
   <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-sm">
     <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Sign In - Step 1: Enter Your Email</h3>
-    <p class="mb-4 text-gray-700 dark:text-gray-300">To begin the sign-in process, please enter your email address below. We will send you an email with instructions and a link to complete your sign-in process. Please ensure the email address is valid so you can receive the instructions.</p>
+    <p class="mb-4 text-gray-700 dark:text-gray-300">
+      To begin the sign-in process, please enter your email address below. We will send you an email with instructions and a link to complete your sign-in process. Please ensure the email address is valid so you can receive the instructions.
+    </p>
+
+    {{#if errors}}
+      <ul class="mb-4 p-4 bg-red-100 dark:bg-red-200 border border-red-400 text-red-800 text-sm rounded">
+        {{#each errors}}
+          <li class="list-disc list-inside">{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
 
     <!-- Form to Enter Email with HX-POST -->
     <form hx-post="/sign-in" hx-target="main" hx-swap="innerHTML">
@@ -13,13 +23,15 @@
         required
         class="block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-400"
         placeholder="you@example.com"
-        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zAZ]{2,}$"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         title="Please enter a valid email address"
         aria-live="polite"
       />
 
       <!-- Information on the Email Process -->
-      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">A valid email address is required to proceed. Once submitted, we will send you a verification email with further instructions. Please check your inbox (and spam/junk folder) for the email.</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+        A valid email address is required to proceed. Once submitted, we will send you a verification email with further instructions. Please check your inbox (and spam/junk folder) for the email.
+      </p>
 
       <!-- Buttons placed side by side -->
       <div class="flex gap-4">
@@ -40,4 +52,3 @@
 </div>
 
 {{> content-end }}
-
