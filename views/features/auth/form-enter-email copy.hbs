@@ -1,13 +1,10 @@
-<div
-  class="d-flex align-items-center justify-content-center min-vh-100 bg-light text-dark"
->
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light text-dark">
   <div class="bg-white p-4 rounded shadow w-100" style="max-width: 400px;">
 
     <h3 class="mb-3">Sign In - Step 1: Enter Your Email</h3>
 
     <p class="mb-4">
-      To begin the sign-in process, please enter your email address below. We
-      will send you a message with instructions to complete your sign-in.
+      To begin the sign-in process, please enter your email address below. We will send you a message with instructions to complete your sign-in process.
     </p>
 
     {{#if errors}}
@@ -22,16 +19,17 @@
 
     <form action="/sign-in" method="post">
       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
+        <!-- Label with ID -->
+        <label id="email-label" for="email" class="form-label">Enter your email address</label>
         <input
           type="email"
           id="email"
           name="email"
           class="form-control"
           required
+          aria-labelledby="email-label"
           pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-          aria-label="Email"
-        />
+        >
       </div>
 
       <div class="d-grid gap-2">
@@ -42,3 +40,5 @@
 
   </div>
 </div>
+
+{{> content-end }}
