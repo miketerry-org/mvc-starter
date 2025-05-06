@@ -27,7 +27,7 @@
       the code will expire, and you will need to request a new one.</p>
 
     <!-- Form to Enter Code with HTMX -->
-    <form hx-post="/verify-code" hx-target="main" hx-swap="innerHTML">
+    <form action="/verify-code" method="post" >
       <!-- Hidden input for email -->
       <input type="hidden" name="email" value="{{email}}">
 

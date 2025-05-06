@@ -18,42 +18,24 @@
       #loading-spinner.htmx-request { display: block; opacity: 1; }
     </style>
   </head>
-  <body
-    class="d-flex flex-column min-vh-100 bg-dark text-light"
-    hx-boost="true"
-  >
+  <body class="d-flex flex-column min-vh-100 bg-dark text-light">
     <!-- Header -->
     <header class="container-fluid py-4 border-bottom border-secondary">
       <div class="row align-items-start">
         <!-- Navigation -->
         <nav class="col-2 d-flex flex-column gap-2">
-          <a
-            href="/"
-            class="btn btn-outline-light btn-sm text-start"
-            hx-target="#main"
-            hx-swap="innerHTML"
-            hx-indicator="#loading-spinner"
-          >Home</a>
+          <a href="/" class="btn btn-outline-light btn-sm text-start">Home</a>
           <a
             href="/about"
             class="btn btn-outline-light btn-sm text-start"
-            hx-target="#main"
-            hx-swap="innerHTML"
-            hx-indicator="#loading-spinner"
           >About</a>
           <a
             href="/contact"
             class="btn btn-outline-light btn-sm text-start"
-            hx-target="#main"
-            hx-swap="innerHTML"
-            hx-indicator="#loading-spinner"
           >Contact</a>
           <a
             href="/support"
             class="btn btn-outline-light btn-sm text-start"
-            hx-target="#main"
-            hx-swap="innerHTML"
-            hx-indicator="#loading-spinner"
           >Support</a>
         </nav>
 
@@ -65,13 +47,7 @@
 
         <!-- Sign In -->
         <div class="col-2 text-end">
-          <a
-            href="/sign-in"
-            class="btn btn-light btn-sm"
-            hx-target="#main"
-            hx-swap="innerHTML"
-            hx-indicator="#loading-spinner"
-          >
+          <a href="/sign-in" class="btn btn-light btn-sm">
             Sign In
           </a>
         </div>
@@ -119,7 +95,6 @@
       defer
     ></script>
 
-    <script src="/js/htmx.min.js" defer></script>
     <script src="/js/main.js" defer></script>
   </body>
 </html>
